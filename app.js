@@ -47,7 +47,7 @@ app.post("/cached/:key/:value", async (req, res) => {
 app.post("/cached/:key/:value/:timeout", async (req, res) => {
   const key = req.params.key;
   const value = req.params.value;
-  const timeout = req.params.timeout;
+  const timeout = req.params.timeout; // timeout in seconds
 
   await client.set(key, value, "EX", parseInt(timeout));
 
