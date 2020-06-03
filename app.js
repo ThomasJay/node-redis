@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const asyncRedis = require("async-redis");
 
 // Connect to redis server
-const client = asyncRedis.createClient("redis://localhost:6379");
+//const client = asyncRedis.createClient("redis://localhost:6379");
+// Connect to "redis" since this is now a service in the docker container
+const client = asyncRedis.createClient("redis://redis:6379");
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-const port = 3000;
+const port = 8080;
 
 // Default get
 app.get("/", (req, res) => res.send("Hello Async Redis Test"));

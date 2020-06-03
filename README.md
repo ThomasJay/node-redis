@@ -26,3 +26,9 @@ To retrieve JSON from a value:
 const jsonObject = JSON.parse(await client.get("coolStuff"));
 
 Remember to use try/catch as needed.
+
+Note: Added Docker support
+
+docker build -t node-redis .
+
+docker-compose up
